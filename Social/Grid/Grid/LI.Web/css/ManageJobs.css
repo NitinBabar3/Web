@@ -1,0 +1,26 @@
+/* 
+    Document   : ManageJobs
+    Created on : 21 Aug, 2012, 4:16:54 PM
+    Author     : letstech01
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.JobInformation{
+    border: black dashed thin ;
+    padding: 10px;
+    background-color: #e4e4e4;
+    width: 700px;
+}
+.Actions{
+    border: black dashed thin;
+    padding: 7px;
+    background-color: #e4e4e4;
+    width: 400px;
+    position:relative; top:-210px;left:750px;
+}
+

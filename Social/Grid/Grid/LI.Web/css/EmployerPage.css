@@ -1,0 +1,41 @@
+/* 
+    Document   : EmployerPage
+    Created on : 17 Aug, 2012, 12:08:05 PM
+    Author     : letstech01
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+.EmployerBusinessCard{
+    background-color: #ececec;
+    border: #A5A8B8 solid 0.5px;
+    padding: 10px;
+    height:120px;
+}
+.JobCard{
+    background-color: #F4F4F4;
+    border: #A5A8B8 solid 0.5px;
+    padding: 10px;
+    height:80px;
+    width:1000px;
+}
+.EmployerLogo{
+    
+}
+.EmployerDetails{
+    position: relative; left:200px;top:-100px;
+}
+
+.JobDetails{
+    position: relative; left:125px;top:-85px;
+}
+.Compensation{
+    position:relative; left:700px;top:-140px;
+}
+.ApplyButton{
+    position:relative;left:700px;top:-120px;;
+}

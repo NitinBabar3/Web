@@ -1,0 +1,1567 @@
+/*
+ * Skin for jPlayer Plugin (jQuery JavaScript Library)
+ * http://www.happyworm.com/jquery/jplayer
+ *
+ * Skin Name: Blue Monday
+ *
+ * Copyright (c) 2010-2011 Happyworm Ltd
+ * Dual licensed under the MIT and GPL licenses.
+ *  - http://www.opensource.org/licenses/mit-license.php
+ *  - http://www.gnu.org/copyleft/gpl.html
+ *
+ * Author: Silvia Benvenuti
+ * Skin Version: 4.0 (jPlayer 2.1.0)
+ * Date: 1st September 2011
+ */
+
+div.jp-audio,
+div.jp-video {
+
+	/* Edit the font-size to counteract inherited font sizing.
+	 * Eg. 1.25em = 1 / 0.8em
+	 */
+
+	font-size:1.25em; /* 1.25em for testing in site pages */ /* No parent CSS that can effect the size in the demos ZIP */
+
+	font-family:Verdana, Arial, sans-serif;
+	line-height:1.6;
+	color: #666;
+	border:1px solid #009be3;
+	background-color:#eee;
+	position:relative;
+}
+div.jp-audio {
+	width:420px;
+}
+div.jp-video-270p {
+	width:480px;
+}
+div.jp-video-360p {
+	width:640px;
+}
+div.jp-video-full {
+	/* Rules for IE6 (full-screen) */
+	width:480px;
+	height:270px;
+	/* Rules for IE7 (full-screen) - Otherwise the relative container causes other page items that are not position:static (default) to appear over the video/gui. */
+	position:static !important; position:relative
+}
+
+div.jp-video-full div.jp-jplayer {
+	top: 0;
+	left: 0;
+	position: fixed !important; position: relative; /* Rules for IE6 (full-screen) */
+	overflow: hidden;
+	z-index:1000;
+}
+
+div.jp-video-full div.jp-gui {
+	position: fixed !important; position: static; /* Rules for IE6 (full-screen) */
+	top: 0;
+	left: 0;
+	width:100%;
+	height:100%;
+	z-index:1000;
+}
+
+div.jp-video-full div.jp-interface {
+	position: absolute !important; position: relative; /* Rules for IE6 (full-screen) */
+	bottom: 0;
+	left: 0;
+	z-index:1000;
+}
+
+div.jp-interface {
+	position: relative;
+	background-color:#eee;
+	width:100%;
+}
+
+div.jp-audio div.jp-type-single div.jp-interface {
+	height:80px;
+}
+div.jp-audio div.jp-type-playlist div.jp-interface {
+	height:80px;
+}
+
+div.jp-video div.jp-interface {
+	border-top:1px solid #009be3;
+}
+
+/* @group CONTROLS */
+
+div.jp-controls-holder {
+	clear: both;
+	width:440px;
+	margin:0 auto;
+	position: relative;
+	overflow:hidden;
+	top:-8px; /* This negative value depends on the size of the text in jp-currentTime and jp-duration */
+}
+
+div.jp-interface ul.jp-controls {
+	list-style-type:none;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+}
+
+div.jp-audio ul.jp-controls {
+	width: 380px;
+	padding:20px 20px 0 20px;
+}
+
+div.jp-video div.jp-type-single ul.jp-controls {
+	width: 78px;
+	margin-left: 200px;
+}
+
+div.jp-video div.jp-type-playlist ul.jp-controls {
+	width: 134px;
+	margin-left: 172px;
+}
+div.jp-video ul.jp-controls,
+div.jp-interface ul.jp-controls li {
+	display:inline;
+	float: left;
+}
+
+div.jp-interface ul.jp-controls a {
+	display:block;
+	overflow:hidden;
+	text-indent:-9999px;
+}
+a.jp-play,
+a.jp-pause {
+	width:40px;
+	height:40px;
+}
+
+a.jp-play {
+	background: url("jplayer.blue.monday.jpg") 0 0 no-repeat;
+}
+a.jp-play:hover {
+	background: url("jplayer.blue.monday.jpg") -41px 0 no-repeat;
+}
+a.jp-pause {
+	background: url("jplayer.blue.monday.jpg") 0 -42px no-repeat;
+	display: none;
+}
+a.jp-pause:hover {
+	background: url("jplayer.blue.monday.jpg") -41px -42px no-repeat;
+}
+
+a.jp-stop, a.jp-previous, a.jp-next {
+	width:28px;
+	height:28px;
+	margin-top:6px;
+}
+
+a.jp-stop {
+	background: url("jplayer.blue.monday.jpg") 0 -83px no-repeat;
+	margin-left:10px;
+}
+
+a.jp-stop:hover {
+	background: url("jplayer.blue.monday.jpg") -29px -83px no-repeat;
+}
+
+a.jp-previous {
+	background: url("jplayer.blue.monday.jpg") 0 -112px no-repeat;
+}
+a.jp-previous:hover {
+	background: url("jplayer.blue.monday.jpg") -29px -112px no-repeat;
+}
+
+a.jp-next {
+	background: url("jplayer.blue.monday.jpg") 0 -141px no-repeat;
+}
+a.jp-next:hover {
+	background: url("jplayer.blue.monday.jpg") -29px -141px no-repeat;
+}
+
+/* @end */
+
+/* @group progress bar */
+
+div.jp-progress {
+	overflow:hidden;
+	background-color: #ddd;
+}
+div.jp-audio div.jp-progress {
+	position: absolute;
+	top:32px;
+	height:15px;
+}
+div.jp-audio div.jp-type-single div.jp-progress {
+	left:110px;
+	width:186px;
+}
+div.jp-audio div.jp-type-playlist div.jp-progress {
+	left:166px;
+	width:130px;
+}
+div.jp-video div.jp-progress {
+	top:0px;
+	left:0px;
+	width:100%;
+	height:10px;
+}
+div.jp-seek-bar {
+	background: url("jplayer.blue.monday.jpg") 0 -202px repeat-x;
+	width:0px;
+	height:100%;
+	cursor: pointer;
+}
+div.jp-play-bar {
+	background: url("jplayer.blue.monday.jpg") 0 -218px repeat-x ;
+	width:0px;
+	height:100%;
+}
+
+/* The seeking class is added/removed inside jPlayer */
+div.jp-seeking-bg {
+	background: url("jplayer.blue.monday.seeking.gif");
+}
+
+/* @end */
+
+/* @group volume controls */
+
+
+a.jp-mute,
+a.jp-unmute,
+a.jp-volume-max {
+	width:18px;
+	height:15px;
+	margin-top:12px;
+}
+
+div.jp-audio div.jp-type-single a.jp-mute,
+div.jp-audio div.jp-type-single a.jp-unmute {
+	margin-left: 210px;	
+}
+
+div.jp-audio div.jp-type-playlist a.jp-mute,
+div.jp-audio div.jp-type-playlist a.jp-unmute {
+	margin-left: 154px;
+}
+
+div.jp-audio a.jp-volume-max {
+	margin-left: 56px;	
+}
+
+div.jp-video a.jp-mute,
+div.jp-video a.jp-unmute,
+div.jp-video a.jp-volume-max {
+	position: absolute;
+	top:12px;
+	margin-top:0;
+}
+
+div.jp-video a.jp-mute,
+div.jp-video a.jp-unmute {
+	left: 50px;
+}
+
+
+div.jp-video a.jp-volume-max {
+	left: 134px;
+}
+
+a.jp-mute {
+	background: url("jplayer.blue.monday.jpg") 0 -170px no-repeat;
+}
+a.jp-mute:hover {
+	background: url("jplayer.blue.monday.jpg") -19px -170px no-repeat;
+}
+a.jp-unmute {
+	background: url("jplayer.blue.monday.jpg") -60px -170px no-repeat;
+	display: none;
+}
+a.jp-unmute:hover {
+	background: url("jplayer.blue.monday.jpg") -79px -170px no-repeat;
+}
+
+a.jp-volume-max {
+	background: url("jplayer.blue.monday.jpg") 0 -186px no-repeat;
+}
+a.jp-volume-max:hover {
+	background: url("jplayer.blue.monday.jpg") -19px -186px no-repeat;
+}
+
+div.jp-volume-bar {
+	position: absolute;
+	overflow:hidden;
+	background: url("jplayer.blue.monday.jpg") 0 -250px repeat-x;
+	width:46px;
+	height:5px;
+	cursor: pointer;
+}
+div.jp-audio div.jp-volume-bar {
+	top:37px;
+	left:330px;
+}
+div.jp-video div.jp-volume-bar {
+	top:17px;
+	left:72px;
+}
+div.jp-volume-bar-value {
+	background: url("jplayer.blue.monday.jpg") 0 -256px repeat-x;
+	width:0px;
+	height:5px;
+}
+
+/* @end */
+
+/* @group current time and duration */
+
+div.jp-audio div.jp-time-holder {
+	position:absolute;
+	top:50px;
+}
+div.jp-audio div.jp-type-single div.jp-time-holder {
+	left:110px;
+	width:186px;
+}
+div.jp-audio div.jp-type-playlist div.jp-time-holder {
+	left:166px;
+	width:130px;
+}
+
+div.jp-current-time,
+div.jp-duration {
+	width:60px;
+	font-size:.64em;
+	font-style:oblique;
+}
+div.jp-current-time {
+	float: left;
+	display:inline;
+}
+div.jp-duration {
+	float: right;
+	display:inline;
+	text-align: right;
+}
+
+div.jp-video div.jp-current-time {
+	margin-left:20px;
+}
+div.jp-video div.jp-duration {
+	margin-right:20px;
+}
+
+/* @end */
+
+/* @group playlist */
+
+div.jp-title {
+	font-weight:bold;
+	text-align:center;
+}
+
+div.jp-title,
+div.jp-playlist {
+	width:100%;
+	background-color:#ccc;
+	border-top:1px solid #009be3;
+}
+div.jp-type-single div.jp-title,
+div.jp-type-playlist div.jp-title,
+div.jp-type-single div.jp-playlist {
+	border-top:none;
+}
+div.jp-title ul,
+div.jp-playlist ul {
+	list-style-type:none;
+	margin:0;
+	padding:0 20px;
+	font-size:.72em;
+}
+
+div.jp-title li {
+	padding:5px 0;
+	font-weight:bold;
+}
+div.jp-playlist li {
+	padding:5px 0 4px 20px;
+	border-bottom:1px solid #eee;
+}
+
+div.jp-playlist li div {
+	display:inline;
+}
+
+/* Note that the first-child (IE6) and last-child (IE6/7/8) selectors do not work on IE */
+
+div.jp-type-playlist div.jp-playlist li:last-child {
+	padding:5px 0 5px 20px;
+	border-bottom:none;
+}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+	list-style-type:square;
+	list-style-position:inside;
+	padding-left:7px;
+}
+div.jp-type-playlist div.jp-playlist a {
+	color: #333;
+	text-decoration: none;
+}
+div.jp-type-playlist div.jp-playlist a:hover {
+	color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current {
+	color:#0d88c1;
+}
+
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove {
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-right:10px;
+	font-weight:bold;
+	color:#666;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove:hover {
+	color:#0d88c1;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media {
+	float:right;
+	display:inline;
+	text-align:right;
+	margin-right:10px;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a{
+	color:#666;
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a:hover{
+	color:#0d88c1;
+}
+span.jp-artist {
+	font-size:.8em;
+	color:#666;
+}
+
+/* @end */
+
+div.jp-video-play {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	cursor:pointer;
+	background-color:rgba(0,0,0,0); /* Makes IE9 work with the active area over the whole video area. IE6/7/8 only have the button as active area. */
+}
+div.jp-video-270p div.jp-video-play {
+	height:270px;
+}
+div.jp-video-360p div.jp-video-play {
+	height:360px;
+}
+div.jp-video-full div.jp-video-play {
+	height:100%;
+	z-index:1000;
+}
+a.jp-video-play-icon {
+	position:relative;
+	display:block;
+	width: 112px;
+	height: 100px;
+
+	margin-left:-56px;
+	margin-top:-50px;
+	left:50%;
+	top:50%;
+
+	background: url("jplayer.blue.monday.video.play.png") 0 0 no-repeat;
+	text-indent:-9999px;
+}
+div.jp-video-play:hover a.jp-video-play-icon {
+	background: url("jplayer.blue.monday.video.play.png") 0 -100px no-repeat;
+}
+
+
+
+
+
+div.jp-jplayer audio,
+div.jp-jplayer {
+	width:0px;
+	height:0px;
+}
+
+div.jp-jplayer {
+	background-color: #000000;
+}
+
+
+
+
+
+/* @group TOGGLES */
+
+/* The audio toggles are nested inside jp-time-holder */
+
+ul.jp-toggles {
+	list-style-type:none;
+	padding:0;
+	margin:0 auto;
+	overflow:hidden;
+}
+
+div.jp-audio .jp-type-single ul.jp-toggles {
+	width:25px;
+}
+div.jp-audio .jp-type-playlist ul.jp-toggles {
+	width:55px;
+	margin: 0;
+	position: absolute;
+	left: 325px;
+	top: 50px;
+}
+
+div.jp-video ul.jp-toggles {
+	margin-top:10px;
+	width:100px;
+}
+
+ul.jp-toggles li {
+	display:block;
+	float:right;
+}
+
+ul.jp-toggles li a {
+	display:block;
+	width:25px;
+	height:18px;
+	text-indent:-9999px;
+	line-height:100%; /* need this for IE6 */
+}
+
+a.jp-full-screen {
+	background: url("jplayer.blue.monday.jpg") 0 -310px no-repeat;
+	margin-left: 20px;
+}
+
+a.jp-full-screen:hover {
+	background: url("jplayer.blue.monday.jpg") -30px -310px no-repeat;
+}
+
+a.jp-restore-screen {
+	background: url("jplayer.blue.monday.jpg") -60px -310px no-repeat;
+	margin-left: 20px;
+}
+
+a.jp-restore-screen:hover {
+	background: url("jplayer.blue.monday.jpg") -90px -310px no-repeat;
+}
+
+a.jp-repeat {
+	background: url("jplayer.blue.monday.jpg") 0 -290px no-repeat;
+}
+
+a.jp-repeat:hover {
+	background: url("jplayer.blue.monday.jpg") -30px -290px no-repeat;
+}
+
+a.jp-repeat-off {
+	background: url("jplayer.blue.monday.jpg") -60px -290px no-repeat;
+}
+
+a.jp-repeat-off:hover {
+	background: url("jplayer.blue.monday.jpg") -90px -290px no-repeat;
+}
+
+a.jp-shuffle {
+	background: url("jplayer.blue.monday.jpg") 0 -270px no-repeat;
+	margin-left: 5px;
+}
+
+a.jp-shuffle:hover {
+	background: url("jplayer.blue.monday.jpg") -30px -270px no-repeat;
+}
+
+a.jp-shuffle-off {
+	background: url("jplayer.blue.monday.jpg") -60px -270px no-repeat;
+	margin-left: 5px;
+}
+
+a.jp-shuffle-off:hover {
+	background: url("jplayer.blue.monday.jpg") -90px -270px no-repeat;
+}
+
+
+/* @end */
+
+/* @group NO SOLUTION error feedback */
+
+.jp-no-solution {
+	position:absolute;
+	width:390px;
+	margin-left:-202px;
+	left:50%;
+	top: 10px;
+
+	padding:5px;
+	font-size:.8em;
+	background-color:#eee;
+	border:2px solid #009be3;
+	color:#000;
+	display:none;
+}
+
+.jp-no-solution a {
+	color:#000;
+}
+
+.jp-no-solution span {
+	font-size:1em;
+	display:block;
+	text-align:center;
+	font-weight:bold;
+}
+/*
+ * -----------------------------------------------
+ * www.jplayer.org
+ * by Happyworm - www.happyworm.com
+ * 
+ * jPlayer.css
+ * -----------------------------------------------
+ */
+ 
+ /* @group RESET */
+
+/* 	css reset 
+	by eric meyer http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}        
+
+
+:focus {
+	outline: none;
+}
+body {
+	line-height: 1;
+}
+/*ol, ul {
+	list-style: none;
+}*/
+
+/* @end */
+
+
+body {
+	background-color: #fff;
+	color: #333;
+	font: 1em/1.6 Verdana, Arial, sans-serif;
+	margin:0;
+	padding:0;
+}
+
+a {
+	color:#009be3;
+}
+
+a:link {
+	color:#009be3;
+}
+
+a:visited {
+	color:#009be3;
+}
+
+a:hover {
+	color:#009be3;
+}
+
+p {
+	margin-bottom:1em;
+}
+
+ul {
+	margin: 0;
+	padding: 0 0 0 20px;
+}
+
+.dev_guide #content_main ul{
+	list-style-type: disc;
+}
+
+h2 {
+	color:#a0a600;
+	margin: 0 0 20px 0;
+	font-size:240%;
+	line-height:140%;
+	font-weight:normal;
+}
+
+h2 a{
+	text-decoration:none;
+	border-bottom: 1px solid #009be3;
+}
+
+h3 {
+	color:#a0a600;
+	font-size:200%;
+	font-style:oblique;
+	line-height:140%;
+	margin-top:1.2em;
+	margin-bottom:.6em;
+}
+
+h4 {
+	color:#666;
+	font-weight:bold;
+	font-size:140%;
+	margin-top:1em;
+	margin-bottom:.5em;
+}
+
+h5 {
+	color:#a0a600;
+	font-weight:bold;
+	font-size:120%;
+	margin-top:1em;
+	margin-bottom:.5em;
+}
+
+
+h6 {
+	color:#666;
+	font-size:120%;
+	text-decoration:underline;
+	margin-top:1em;
+	margin-bottom:.5em;
+}
+
+strong {
+	font-weight: bold;
+}
+
+a img {
+	border: none;
+	outline:none;	
+}
+
+nav {
+	display:block;
+}
+
+#container {
+	padding: 0 10px 20px 10px;
+	margin: 0 auto;
+	width: 978px;
+	overflow: hidden;
+}
+
+header {
+	position: relative;
+	display:block;
+	padding-top: 20px;
+}
+
+header > a {
+	display: block;
+	width: 300px;
+}
+
+header a{
+	text-decoration:none;
+}
+
+
+header h1 {
+	color:#a0a600;
+	font-weight:normal;
+	text-indent:28px;
+	font-size:13.5px;
+	margin-top:0;
+}
+
+header p a {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 190px;
+	height: 46px;
+	background: url(../graphics/happyworm_logo.jpg) 0 0 no-repeat;
+	text-indent:-9999px;
+}
+
+#content_main {
+	width: 685px;
+	float: left;
+	font-size: 0.8em;
+	margin-bottom: 40px;
+	padding-top: 20px;
+}
+
+#content_main img.demo {
+	float: right;
+	margin: 0 0 20px 20px;
+}
+
+body.release_notes #content_main li {
+	margin-bottom:8px;
+}
+
+aside {
+	display: block;
+	width: 264px;
+	margin-left: 714px;
+	margin-top: 4em;
+	font-size:.7em;
+}
+
+aside a{
+	color: #333;
+}
+
+aside .section {
+	border: none;
+	margin-bottom: 20px;
+	padding: 0;
+}
+
+aside .highlight, aside .transbgr {
+	padding: 10px 16px;
+	margin: 0 0 20px 0;
+	background-color: #f0f0f0;
+}
+
+aside .transbgr {
+	background-color: transparent;
+}
+
+.highlight h2, .transbgr h2 {
+	color:#666;
+	font-size:170%;
+	line-height:160%;
+}
+
+aside .highlight h2 a, aside .transbgr h2 a{
+	border-bottom:1px dotted #009be3;
+	color: #009be3;
+}
+
+.highlight h3, .transbgr h3 {
+	color:#a0a600;
+	font-size:100%;
+	font-weight:normal;
+	line-height:160%;
+	border-top: 1px solid #a0a600;
+	margin: 16px -16px 0 -16px;
+	padding:  0 16px 10px 16px;
+}
+
+aside .highlight h3 a, aside .transbgr h3 a {
+	color:#a0a600;
+	text-decoration:none;
+}
+
+aside form input {
+	margin-bottom: 12px;
+}
+
+aside select,
+input[type="text"] {
+	border: 1px solid #999;
+	padding: 6px 10px;
+}
+
+/* placeholder: Used in Community email input. The HTML controls the color using onfocus/onblur code. Inital condition uses this value, so the code and this css need to match colors. */
+input.placeholder {
+	color:#999;
+}
+
+input.btn {
+	background-color: #009be3;
+	color: #fff;
+	font-weight:bold;
+	padding: 6px 14px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border: 0;
+}
+
+input.btn:hover {
+	cursor: pointer;
+	background-color: #a0a600;
+}
+
+
+aside ul{
+	margin: 0;
+	padding: 0;
+	list-style-type:none;	
+}
+
+
+/* @group NAVIGATION */
+
+.main {
+	float: right;
+	font-size: 0.8em;
+	margin-top:-53px;
+}
+
+.main ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+/*	width:100%;*/
+}
+
+.main li {
+	float: left;
+	margin: 0;
+	margin-left: 6px;
+}
+
+.main li a, .main li a:link, .main li a:visited{
+	display: block;
+	overflow: hidden;
+	background-color: #666;
+	color: #fff;
+	text-decoration:none;
+	padding: 6px 14px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+.main li a:hover{
+	background-color: #009be3;
+}
+
+.main li a:focus{
+	background-color: #009be3;
+}
+
+.main li a:active{
+	margin-top: 1px;
+	outline: none;
+}
+
+body.jplayer .main li#home a, body.demos .main li#demos a, body.download .main li#download a, body.dev_guide .main li#dev_guide a, body.support .main li#support a, body.sites .main li#sites a, body.about .main li#about a, body.skins .main li#skins a {
+	background-color:#A0A600;
+}
+
+ul#usp {
+	width: 100%;
+	padding: 0;
+	margin: 0 0 20px 0;
+	overflow:hidden;
+}
+
+ul#usp li{
+	list-style-type:none;
+	float:left;
+	width:25%;
+}
+
+ul#usp li a{
+	display: block;
+	text-align:center;
+	width:100%;
+}
+
+
+#breadcrumbs {
+	list-style-type:none;
+	margin: 0 ;
+	padding: 0;
+	width: 100%;
+	overflow: hidden;
+	font-size:90%;
+}
+
+#breadcrumbs li{
+	float: left;
+	color: #666;
+	padding-right: .5em;
+}
+
+#menu_download {
+	float: right;
+	width: 206px;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	list-style-type:none;
+}
+
+#menu_download li{
+	float: left;
+}
+
+#menu_download a{
+	display: block;
+	width: 206px;
+	height: 94px;
+}
+
+#menu_download a:active {
+	top: 0px;
+}
+
+#menu_download #plugin a{
+	background: url(../graphics/jplayer_download_sprites.jpg) 0 0 no-repeat;
+}
+
+#menu_download #plugin a:hover{
+	background: url(../graphics/jplayer_download_sprites.jpg) 0 -94px no-repeat;
+}
+
+#menu_download a span{
+	display: block;
+	text-indent:-999px;
+}
+
+/*.forkit {
+	display: block;
+	width: 192px;
+	height: 50px;
+	line-height:50px;
+	background-color:#fff;
+	margin: 20px 10px;
+	text-align:center;
+	float: right;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	color: #666;
+}*/
+
+.forkit {
+	padding-top:40px;
+}
+
+.forkit a{
+	display: block;
+	float: right;
+	width:206px;
+	height: 65px;
+	background: url(../graphics/jplayer_download_sprites.jpg) 0 -188px no-repeat;
+	text-indent:-9999px;
+	margin-bottom: 30px;
+}
+
+.forkit a:hover{
+	background: url(../graphics/jplayer_download_sprites.jpg) 0 -253px no-repeat;
+}
+
+
+/* @end */    
+
+/* For efficiency, put front page specific CSS in a separate file or in the front page itself -- mb */    
+
+
+#slideshow {
+	width: 460px;
+	height: 260px;
+	float: left;
+	overflow:hidden;
+	padding: 0;
+	margin: 0;
+	list-style-type:none;
+}
+
+#slideshow .viewport {
+	width: 360px;
+	height: 260px;
+	margin: 0 12px;  
+	background-color:#f0f0f0;   
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;   
+	 
+	overflow: hidden;
+	position: relative;
+}  
+
+#slideshow .overview {
+	position: absolute;
+	list-style-type:none;
+	margin: 0;
+	padding: 0 20px;
+}
+
+#slideshow li.right-button,
+#slideshow li.left-button {
+	float: left;
+	margin-top:110px;
+}
+
+#slideshow li.carousel {
+	float: left;
+}
+
+#slideshow .overview li.slide {
+	float: left;
+	width: 320px; /* 360 - (2 * 20) */
+	height: 260px;
+}
+
+#slideshow a.slideshow_btn {
+	display: block;
+	width:10px;
+	padding: 6px 14px;
+	background-color: #666;
+	color: #fff;
+	text-decoration:none;
+	text-align:center;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#slideshow a.slideshow_btn:hover {
+	background-color: #009be3;
+}
+
+#slideshow a.slideshow_btn:active {
+	margin-top: 1px;
+}
+
+#slideshow li div.circleplayer  {
+	position: relative;
+	left: 60px;
+	top: 30px;
+	width:200px;
+}
+
+#slideshow li div.comingsoon {
+	font-size: 170%;
+	color:#009BE3;	
+	text-align: center;
+	padding-top:106px;
+}
+
+#steps{
+	width: 100%;
+	margin:0;
+	padding: 0;
+	overflow:hidden;
+	clear: both;
+} 
+
+#steps li{
+	list-style-type:none;
+	margin: 0 0 0 -15px;
+	padding: 0;
+	float: left;
+} 
+
+#steps li a{
+	position:relative;
+	display:block;
+	width:235px;
+	height:49px;
+	text-indent:-999px;
+}
+
+#steps li:first-child{
+	margin-left:0;
+}
+
+#step-download a{
+	background: url(../graphics/3btns_sprites.gif) 0 0 no-repeat;
+}
+#step-download a:hover {
+	background: url(../graphics/3btns_sprites.gif) 0 -49px no-repeat;
+	z-index:1;
+}
+
+#step-create a{
+	background: url(../graphics/3btns_sprites.gif) -235px 0 no-repeat;
+}
+#step-create a:hover {
+	background: url(../graphics/3btns_sprites.gif) -235px -49px no-repeat;
+	z-index:1;
+}
+
+#step-takepart a{
+	background: url(../graphics/3btns_sprites.gif) -470px 0 no-repeat;
+}
+#step-takepart a:hover {
+	background: url(../graphics/3btns_sprites.gif) -470px -49px no-repeat;
+	z-index:1;
+}
+
+
+ul.thin {
+	width: 380px;
+	float: left;
+	margin-right: 20px;
+	list-style-type:disc;
+}
+
+ul.thin li{
+	margin-bottom:.5em;
+}
+
+.centered {
+	font-size:90%;
+	text-align:center;
+	margin: 0;
+}
+
+.left_image {
+	clear: both;
+	padding: 0;
+	margin: 0;
+}
+
+.float_right {
+	clear: both;
+	float: right;
+}
+
+footer {
+	display:block;
+	font-size: 0.6em;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 20px;
+	clear:both;
+}
+
+footer p{
+	width: 540px;
+	float: left;
+	line-height:60px;
+}
+
+footer p a img{
+	float: left;
+}
+
+
+#twitter {
+	display: block;
+	width: 100px;
+	text-decoration:none;
+	padding: 10px;
+	overflow:hidden;
+	text-align:right;
+	float: right;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+}
+
+#twitter img {
+	float: left;
+}
+
+#twitter:hover {
+	background-color:#eee;
+}
+
+
+#content_main div.section, /* The rule for older than 2.0.0 parts of the site */
+#content_main > section, #content_main > article  {
+	display:block;
+	padding:1em 0;
+	margin-bottom: 20px;
+	overflow: hidden;
+	border-bottom:1px solid #f0f0f0;
+}
+
+#content_main div.section a:active, /* The rule for older than 2.0.0 parts of the site */
+#content_main > section p a:active { /* Added p element to selector otherwise all the demo controls break */
+	position: relative;
+	top: 1px;
+}
+
+/* The demo rules for older than 2.0.0 parts of the site */
+#content_main div.demo_section_top {
+	border:none;
+	padding-bottom:0;
+}
+
+#content_main div.demo_section_mid {
+	border:none;
+	padding:0;
+}
+
+#content_main div.demo_section_bot {
+	padding-top:0;
+}
+/* End of: The demo rules for older than 2.0.0 parts of the site */
+
+
+
+.date {
+	margin: 0;
+	padding: 0;
+	font-style:oblique;
+}
+
+dt {
+	font-weight: bold;
+	color:#666;
+	margin-top: 20px;
+	border-left: 1px solid  #a0a600;
+	padding-left: 8px;
+}
+
+dd {
+	border-left: 1px solid  #a0a600;
+	padding-left: 8px;
+}
+
+
+dl {
+	margin-bottom:20px;
+}
+
+dl dl {
+	margin-left: 20px;
+}
+
+dl dl dt{
+	color: #000;
+}
+
+
+dl dl dl dt{
+	font-style: oblique;
+	text-decoration:underline;
+}
+
+code {
+	font-family: monospace, "Courier New";
+	font-size:1.1em;
+	color: #000;
+	background-color: #eee;
+}
+
+.explanation {
+	font-size:.8em;
+	font-style: oblique;
+}
+
+.explanation code {
+	font-size:1.4em;
+}
+
+pre {
+	font-family: monospace, "Courier New";
+	padding: 10px;
+	margin: 10px 0;
+	border:  1px solid #ccc;
+	background-color:#eee;
+	overflow: auto;
+	color: #000;
+	font-size:.9em;
+}
+
+pre.snippet {
+	height:200px;
+	font-size:0.8em;
+}
+
+ul.thin+pre {
+	width: 243px;
+	float: right;
+	margin: 0;
+}
+
+ul.thin+img {
+	float: right;
+	margin:-20px 0 20px 0;
+}
+
+.media-copyright,
+.note,
+.miaow {
+	font-size:.8em;
+	color:#999;
+}
+
+.FlattrButton {
+	float: right;	
+	padding-top:3px;
+}
+
+/*
+.center {
+	text-align: center;
+}*/
+
+/*.flattr,
+.plegie {
+	margin-top: 1em;
+}*/
+
+div.obsolete {
+	background-color:#ffeeee;
+	border: 1px dashed #ff3333;
+	font-weight:bold;
+	color:#ff0000;
+	padding:1em 10px 0 10px;
+	margin-bottom:10px;
+}
+
+.ralign {
+	text-align:right;
+}  
+
+/*
+ * Project: CirclePlayer
+ * http://www.jplayer.org
+ *
+ * Copyright (c) 2011 Happyworm Ltd
+ *
+ * Author: Silvia Benvenuti
+ * Edited by: Mark J Panaghiston
+ * Date: 6th May 2011
+ * Artwork inspired by: http://forrst.com/posts/Untitled-CJz
+ */
+
+.cp-container {
+	position: relative;
+	width: 104px; /* 200 - (2 * 48) */
+	height: 104px;
+	background: url("bgr.jpg") 0 0 no-repeat;
+	padding: 48px;
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+
+.cp-container :focus {
+	border:none; 
+	outline:0;
+}
+
+.cp-buffer-1,
+.cp-buffer-2,
+.cp-progress-1,
+.cp-progress-2 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 104px;
+	height: 104px;
+	clip:rect(0px,52px,104px,0px);
+
+	-moz-border-radius:52px;
+	-webkit-border-radius:52px;
+	border-radius:52px;
+}
+
+.cp-buffer-1,
+.cp-buffer-2 {
+	background: url("buffer.png") 0 0 no-repeat;
+}     
+
+
+/* FALLBACK for .progress
+ * (24 steps starting from 1hr filled progress, Decrease second value by 104px for next step)
+ * (It needs the container selector to work. Or use div)
+ */ 
+
+.cp-container .cp-fallback {
+	background: url("progress_sprite.jpg") no-repeat;
+	background-position: 0 104px; 
+}
+
+.cp-progress-1,
+.cp-progress-2 {
+	background: url("progress.png") 0 0 no-repeat;
+} 
+
+.cp-buffer-holder,
+.cp-progress-holder,
+.cp-circle-control {
+	position:absolute;
+	width:104px;
+	height:104px;
+} 
+
+.cp-circle-control {
+	cursor:pointer;
+}
+
+.cp-buffer-holder,
+.cp-progress-holder {
+	clip:rect(0px,104px,104px,52px);
+	display:none;
+}
+
+
+/* This is needed when progress is greater than 50% or for fallback */
+
+.cp-buffer-holder.cp-gt50,
+.cp-progress-holder.cp-gt50,
+.cp-progress.cp-fallback{
+	clip:rect(auto, auto, auto, auto);
+}  
+
+.cp-controls {
+	margin:0;
+	padding: 26px;
+}
+
+.cp-controls li{
+	list-style-type:none;
+	display: block;
+
+	/*IE Fix*/  
+	position:absolute;
+}
+
+.cp-controls li a{
+	position: relative;
+	display: block;
+	width:50px;
+	height:50px;
+	text-indent:-9999px;
+	z-index:1;      
+}
+
+.cp-controls .cp-play {
+	background: url("controls.jpg") 0 0 no-repeat;
+}
+
+.cp-controls .cp-play:hover {
+	background: url("controls.jpg") -50px 0 no-repeat;
+}
+
+.cp-controls .cp-pause {
+	background: url("controls.jpg") 0 -50px no-repeat;
+}
+
+.cp-controls .cp-pause:hover {
+	background: url("controls.jpg") -50px -50px no-repeat;
+}
+
+.cp-jplayer {
+	width: 0;
+	height: 0; 
+}
+
+/* @end */
